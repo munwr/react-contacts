@@ -1,18 +1,38 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+
+class ContactList extends Component {
+  render() {
+    const people = this.props.contacts;
+
+    return (
+      <ol>
+        { people.map( people => (
+          <li key={people.name}>{people.name}</li>
+        ))}
+      </ol>
+    );
+  }
+}
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <h3>FD Mates</h3>
+        <ContactList contacts={[
+          { name: "Munawar" },
+          { name: "Prateep" },
+          { name: "Ellanki Hari" },
+          { name: "Vikram" },
+          { name: "Vasu" },
+          { name: "Vamsi" }
+        ]}/>
+        <h3>School Mates</h3>
+        <ContactList contacts={[
+          { name: "Aleem" },
+          { name: "Akber" },
+          { name: "Nasir" }
+        ]}/>
       </div>
     );
   }
